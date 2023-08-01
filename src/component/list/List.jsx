@@ -7,6 +7,7 @@ import ListHeaderCell from "./ListHeaderCell";
 import styles from "./List.module.css";
 
 const List = ({ rows }) => {
+ 
   return (
     <table className={styles.container}>
       <thead>
@@ -20,6 +21,7 @@ const List = ({ rows }) => {
       </thead>
       <tbody>
         {rows.map((row) => (
+          
           <ListRow>
             <ListRowCell>{row["&id"]}</ListRowCell>
             <ListRowCell>{row.executionDetails.buySellIndicator}</ListRowCell>
@@ -28,6 +30,8 @@ const List = ({ rows }) => {
             <ListRowCell>{row.bestExecutionData.orderVolume.USD}</ListRowCell>
           </ListRow>
         ))}
+    
+        
       </tbody>
     </table>
   );

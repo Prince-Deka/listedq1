@@ -9,9 +9,12 @@ const Card = ({ cardData, title }) => {
         <div className={styles.cell}>
           <div className={styles.value}>{k}</div>
           <div className={styles.value}>{v}</div>
+          
         </div>
       ))}
+      
     </div>
+   
   );
 };
 
