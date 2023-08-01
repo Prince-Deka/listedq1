@@ -6,7 +6,7 @@ import ListHeaderCell from "./ListHeaderCell";
 
 import styles from "./List.module.css";
 
-const List = ({ rows }) => {
+const List = ({ rows, submittedTimes }) => {
  
   return (
     <table className={styles.container}>
@@ -26,7 +26,7 @@ const List = ({ rows }) => {
             <ListRowCell>{row["&id"]}</ListRowCell>
             <ListRowCell>{row.executionDetails.buySellIndicator}</ListRowCell>
             <ListRowCell>{row.executionDetails.orderStatus}</ListRowCell>
-            <ListRowCell>{row.orderSubmitted}</ListRowCell>
+            <ListRowCell>{submittedTimes.find(time => time["&id"] === row["&id"]).timestamps.orderSubmitted}</ListRowCell>
             <ListRowCell>{row.bestExecutionData.orderVolume.USD}</ListRowCell>
           </ListRow>
         ))}
