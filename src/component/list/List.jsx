@@ -6,8 +6,12 @@ import ListHeaderCell from "./ListHeaderCell";
 
 import styles from "./List.module.css";
 
-const List = ({ rows, submittedTimes }) => {
+const List = ({ rows, submittedTimes, details, timeStamp }) => {
  
+  const handle2 = (e) =>{
+    details(rows[e].executionDetails);
+    timeStamp(submittedTimes[e].timestamps)
+  }
   return (
     <table className={styles.container}>
       <thead>
@@ -20,9 +24,9 @@ const List = ({ rows, submittedTimes }) => {
         </ListHeader>
       </thead>
       <tbody>
-        {rows.map((row) => (
+        {rows.map((row, index) => (
           
-          <ListRow>
+          <ListRow  handl2={handle2} index={index}>
             <ListRowCell>{row["&id"]}</ListRowCell>
             <ListRowCell>{row.executionDetails.buySellIndicator}</ListRowCell>
             <ListRowCell>{row.executionDetails.orderStatus}</ListRowCell>
