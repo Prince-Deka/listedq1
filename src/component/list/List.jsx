@@ -6,7 +6,7 @@ import ListHeaderCell from "./ListHeaderCell";
 
 import styles from "./List.module.css";
 
-const List = ({ rows, submittedTimes, details, timeStamp }) => {
+const List = ({ rows, submittedTimes, details, timeStamp, currency }) => {
  
   const handle2 = (e) =>{
     details(rows[e].executionDetails);
@@ -20,18 +20,18 @@ const List = ({ rows, submittedTimes, details, timeStamp }) => {
           <ListHeaderCell>Buy/Sell</ListHeaderCell>
           <ListHeaderCell>Country</ListHeaderCell>
           <ListHeaderCell>Order Submitted</ListHeaderCell>
-          <ListHeaderCell>Order Volume / USD</ListHeaderCell>
+          <ListHeaderCell>Order Volume / {currency}</ListHeaderCell>
         </ListHeader>
       </thead>
       <tbody>
         {rows.map((row, index) => (
           
-          <ListRow  handl2={handle2} index={index}>
+          <ListRow  handl2={handle2} index={index} >
             <ListRowCell>{row["&id"]}</ListRowCell>
             <ListRowCell>{row.executionDetails.buySellIndicator}</ListRowCell>
             <ListRowCell>{row.executionDetails.orderStatus}</ListRowCell>
             <ListRowCell>{submittedTimes.find(time => time["&id"] === row["&id"]).timestamps.orderSubmitted}</ListRowCell>
-            <ListRowCell>{row.bestExecutionData.orderVolume.USD}</ListRowCell>
+            <ListRowCell>{row.bestExecutionData.orderVolume[currency]}</ListRowCell>
           </ListRow>
         ))}
     

@@ -58,11 +58,9 @@ const Dashboard = () => {
           <Card
             cardData={selectedOrderTimeStamps}
             title="Selected Order Timestamps"
-
-            details
           />
         </div>
-        <List rows={data} submittedTimes={timestamps.results} timeStamp={setSelectedOrderTimeStamps} details={setSelectedOrderDetails}/> 
+        <List rows={data} submittedTimes={timestamps.results} timeStamp={setSelectedOrderTimeStamps} details={setSelectedOrderDetails} currency={currency}/> 
       </div>
     </div>
   );
